@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "SW2ADPushGame", "SW2ADPushGame\SW2ADPushGame.pyproj", "{8028421E-40D4-47EE-8C41-A19200A7C9D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8028421E-40D4-47EE-8C41-A19200A7C9D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8028421E-40D4-47EE-8C41-A19200A7C9D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0AC1A507-7DBC-4CAB-A7E6-52A24C0D4424}
+	EndGlobalSection
+EndGlobal
