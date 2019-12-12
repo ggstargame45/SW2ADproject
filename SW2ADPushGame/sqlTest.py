@@ -1,10 +1,10 @@
 import pymysql
 
-conn = pymysql.connect(host='localhost',user='root',password='devourstats@',db='diary',charset='utf8')
+conn = pymysql.connect(host='localhost',user='root',password='devourstats@',db='pushgame',charset='utf8')
 
 curs = conn.cursor()
 
-sql = "select * from verifier"
+sql = "select * from records"
 curs.execute(sql)
 
 rows = curs.fetchall()
