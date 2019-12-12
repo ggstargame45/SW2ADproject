@@ -1,7 +1,7 @@
 import sys
 from Window import *
 
-"""
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
 
@@ -9,4 +9,3 @@ if __name__ == '__main__':
     demo.show()
 
     sys.exit(app.exec_())
-"""

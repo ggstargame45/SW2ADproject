@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 
+import time
 from Tile import *
 
 class Window(QWidget):
@@ -59,3 +60,4 @@ class Window(QWidget):
     def arrowTest(self,dx,dy):
         self.mapTest.move(dx,dy)
         self.StageTest.setPlaceholderText(self.mapTest.display())
+        time.sleep(0.1)

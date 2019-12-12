@@ -24,6 +24,7 @@ class Test_tile(unittest.TestCase):
             ])
         self.m1.move(1,0)
         self.assertEqual(self.m1.display(),str(t1))
-
+"""
 if __name__ == '__main__':
     unittest.main()
+"""

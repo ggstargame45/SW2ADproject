@@ -9,14 +9,23 @@ class Tiles(object):
     #def stageMaker(self, stageNum)
     #def __init__(self, stageNum)
     def __init__(self):
-
-        #-1=벽 1=플레이어 2=플레이어+집 3=박스 4=집 5=박스+집
+        """
+        음수는 무조건 막히는 타일
+        -1=벽
+        0=빈공간
+        1~20는 플레이어와 플레이어+타일
+        1=플레이어 2=플레이어+집
+        21~40대는 박스와 박스+타일
+        21=박스 22=박스+집
+        41~은 단일 타일들
+        41=집 
+        """
         self.tile = [
             [-1,-1,-1,-1,-1,-1,-1,-1],
             [-1,0,0,0,0,0,0,-1],
-            [-1,0,4,4,0,0,0,-1],
-            [-1,0,4,4,3,0,0,-1],
-            [-1,0,0,0,3,0,0,-1],
+            [-1,0,41,41,0,0,0,-1],
+            [-1,0,41,41,21,0,0,-1],
+            [-1,0,0,0,21,0,0,-1],
             [-1,0,0,1,0,0,0,-1],
             [-1,0,0,0,0,0,0,-1],
             [-1,-1,-1,-1,-1,-1,-1,-1]
@@ -29,21 +38,31 @@ class Tiles(object):
         if self.tile[Row][Col]==1:
             return 0
         elif self.tile[Row][Col]==2:
-            return 4
+            return 41
         else:
             return -1
 
     def rockGo(self,Row,Col):
         rGo = self.tile[Row][Col]
-        if rGo==-1 or rGo==3 or rGo==5:
+        if rGo==-1 or rGo==21 or rGo==22:
             return False
         else:
             if rGo==0:
-                self.tile[Row][Col]=3
-            elif rGo==4:
-                self.tile[Row][Col]=5
+                self.tile[Row][Col]=21
+            elif rGo==41:
+                self.tile[Row][Col]=22
             return True
-    #-1=벽 1=플레이어 2=플레이어+집 3=박스 4=집 5=박스+집
+    """
+    음수는 무조건 막히는 타일
+    -1=벽
+    0=빈공간
+    1~20는 플레이어와 플레이어+타일
+    1=플레이어 2=플레이어+집
+    21~40대는 박스와 박스+타일
+    21=박스 22=박스+집
+    41~은 단일 타일들
+    41=집 
+    """
     def move(self, dx,dy):
         doesGo = self.tile[self.playerRowPos+dy][self.playerColumnPos+dx]
         if doesGo==-1:
@@ -51,17 +70,17 @@ class Tiles(object):
         elif doesGo==0:
             self.tile[self.playerRowPos+dy][self.playerColumnPos+dx]=1
             self.tile[self.playerRowPos][self.playerColumnPos]=self.playerLeft(self.playerRowPos,self.playerColumnPos)
-        elif doesGo==3:
+        elif doesGo==21:
             if self.rockGo(self.playerRowPos+dy+dy,self.playerColumnPos+dx+dx):
                 self.tile[self.playerRowPos+dy][self.playerColumnPos+dx]=1
                 self.tile[self.playerRowPos][self.playerColumnPos]=self.playerLeft(self.playerRowPos,self.playerColumnPos)
             else:
                 return
-        elif doesGo==4:
+        elif doesGo==41:
             self.tile[self.playerRowPos+dy][self.playerColumnPos+dx]=2
             self.tile[self.playerRowPos][self.playerColumnPos]=self.playerLeft(self.playerRowPos,self.playerColumnPos)
 
-        elif doesGo==5:
+        elif doesGo==22:
             if self.rockGo(self.playerRowPos+dy+dy,self.playerColumnPos+dx+dx):
                 self.tile[self.playerRowPos+dy][self.playerColumnPos+dx]=2
                 self.tile[self.playerRowPos][self.playerColumnPos]=self.playerLeft(self.playerRowPos,self.playerColumnPos)
